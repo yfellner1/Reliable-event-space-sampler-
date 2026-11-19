@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Colors and type carried over from the prototype. */
+:root {
+  --bg: #f3f6f1;
+  --surface: #ffffff;
+  --ink: #1c2a21;
+  --muted: #5c6a60;
+  --line: #d6ddd4;
+  --brand: #2c5e3f;
+  --brand-ink: #ffffff;
+  --accent: #b5382a;
+  --jewish: #2b5fa8;
+  --soft: #e8efe6;
+  --warn-bg: #fff4dd;
+  --warn-ink: #6b4700;
+  --err-bg: #fce9e6;
+  --err-ink: #8a2318;
+  --ok-bg: #e3f2e8;
+  --ok-ink: #1d5a35;
+  --hold: #b7791f;
+  --hold-ink: #7a4f0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #131a15;
+    --surface: #1c2520;
+    --ink: #e8eee8;
+    --muted: #9aa89e;
+    --line: #34423a;
+    --brand: #7cc798;
+    --brand-ink: #0f1a13;
+    --accent: #f08a7b;
+    --jewish: #8fb8f2;
+    --soft: #243029;
+    --warn-bg: #3a2f12;
+    --warn-ink: #f3d58e;
+    --err-bg: #40201c;
+    --err-ink: #f6b5ac;
+    --ok-bg: #1d3325;
+    --ok-ink: #a9e0bd;
+    --hold: #e6aa3c;
+    --hold-ink: #f3d58e;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+  --color-jewish: var(--jewish);
+  --color-soft: var(--soft);
+  --color-warn: var(--warn-ink);
+  --font-sans: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-heading), var(--font-body), system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .field {
+    display: grid;
+    gap: 5px;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+  .input {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    min-height: 44px;
+    min-width: 0;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 44px;
+    text-decoration: none;
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .btn-primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--brand-ink);
+  }
+  .btn-danger {
+    color: var(--accent);
+  }
+  .box {
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.93rem;
+  }
+  .box-err {
+    background: var(--err-bg);
+    color: var(--err-ink);
+  }
+  .box-warn {
+    background: var(--warn-bg);
+    color: var(--warn-ink);
+  }
+  .box-ok {
+    background: var(--ok-bg);
+    color: var(--ok-ink);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+}

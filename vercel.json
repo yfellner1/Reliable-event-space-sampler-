@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "tsx scripts/vercel-prebuild.ts && next build",
+  "crons": [
+    {
+      "path": "/api/cron/daily-reminder",
+      "schedule": "0 * * * *"
+    }
+  ]
+}
